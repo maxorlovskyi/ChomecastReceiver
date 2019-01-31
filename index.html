@@ -6,13 +6,12 @@
 </head>
 <body>
    <cast-media-player></cast-media-player>
-   <iframe id="host" style = "position: absolute;border: 0;left: 0;top: 0;" width = "100%" height = "100%" >
-   </iframe >
+   <iframe id="host" style = "position: absolute;border: 0;left: 0;top: 0;" width = "100%" height = "100%" />
+   
   <script>
     var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
     
     castReceiverContext.addCustomMessageListener('urn:x-cast:com.test.chromecast-dashboard-tv', function(event) {
-      alert(event.data.url)
       document.getElementById("host").setAttribute("src",event.data.url);
     })
 
