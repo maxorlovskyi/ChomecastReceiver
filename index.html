@@ -5,8 +5,10 @@
   </script>
 </head>
 <body>
+  <div id="oops">
    <cast-media-player></cast-media-player>
-  <script>
+  </div>
+    <script>
     var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
     
     castReceiverContext.addCustomMessageListener('urn:x-cast:com.test.chromecast-dashboard-tv', function(event) {
@@ -17,8 +19,10 @@
         frame.style.left = "0";
         frame.style.top = "0";
         frame.src = event.data.url;
-
+        frame.frameBorder = 0;
         document.body.append(frame)
+      
+        document.createElement("oops").remove();
     })
 
     castReceiverContext.start();
