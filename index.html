@@ -12,6 +12,7 @@
     var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
     
     castReceiverContext.addCustomMessageListener('urn:x-cast:com.test.chromecast-dashboard-tv', function(event) {
+      alert(event.data.url)
       document.getElementById("host").setAttribute("src",event.data.url);
     })
 
