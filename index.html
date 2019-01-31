@@ -6,9 +6,14 @@
 </head>
 <body>
    <cast-media-player></cast-media-player>
-   <iframe src="https://tracks.habitburger.com/chromecast/ae1128a0-12e3-96f7-2368-ae30328c09e0" style="position: absolute;border: 0;left: 0;top: 0;" width="100%" height="100%">
-    </body></iframe>
+   <div id='test' style="position: absolute;border: 0;left: 0;top: 0; right:0; bottom:0; background-color:white;">
+  EMPTY =(
+  </div>
   <script>
+    var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.test.chromecast-dashboard-tv');
+    customMessageBus.onMessage = function(event) {
+       document.getElementById("test").innerText=JSON.stringify(event.data);
+    }
     cast.framework.CastReceiverContext.getInstance().start();
   </script>
 </body>
