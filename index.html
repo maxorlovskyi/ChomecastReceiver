@@ -10,18 +10,14 @@
   EMPTY =(
   </div>
   <script>
-    cast.framework.CastReceiverContext.getInstance().start();
+    var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
     
-    document.getElementById("test").innerText = "Hello??"
-
-    var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-    var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.test.chromecast-dashboard-tv');
-    
-    customMessageBus.onMessage = function(event) {
+    castReceiverContext.addCustomMessageListener('urn:x-cast:com.test.chromecast-dashboard-tv', function(event) {
       document.getElementById("test").innerText = "FIRE!!!";
       document.getElementById("test").innerText=JSON.stringify(event.data);
-    }
-   
+    })
+
+    castReceiverContext.start();
   </script>
 </body>
 </html>
