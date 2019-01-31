@@ -12,15 +12,14 @@
   <script>
     document.getElementById("test").innerText = "Hello??"
 
-    var castReceiverManager = cast.framework.CastReceiverContext.getInstance();
-    
+    var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
     var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.test.chromecast-dashboard-tv');
     
     customMessageBus.onMessage = function(event) {
       document.getElementById("test").innerText = "FIRE!!!";
       document.getElementById("test").innerText=JSON.stringify(event.data);
     }
-    castReceiverManager.start();
+    cast.framework.CastReceiverContext.getInstance().start();
   </script>
 </body>
 </html>
