@@ -10,6 +10,8 @@
   EMPTY =(
   </div>
   <script>
+    cast.framework.CastReceiverContext.getInstance().start();
+    
     document.getElementById("test").innerText = "Hello??"
 
     var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
@@ -19,7 +21,7 @@
       document.getElementById("test").innerText = "FIRE!!!";
       document.getElementById("test").innerText=JSON.stringify(event.data);
     }
-    cast.framework.CastReceiverContext.getInstance().start();
+   
   </script>
 </body>
 </html>
