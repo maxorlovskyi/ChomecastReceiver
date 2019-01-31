@@ -11,7 +11,9 @@
   </div>
   <script>
     var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.test.chromecast-dashboard-tv');
+    document.getElementById("test").innerText = "Hello??"
     customMessageBus.onMessage = function(event) {
+      document.getElementById("test").innerText = "FIRE!!!";
        document.getElementById("test").innerText=JSON.stringify(event.data);
     }
     cast.framework.CastReceiverContext.getInstance().start();
