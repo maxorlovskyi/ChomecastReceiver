@@ -12,6 +12,7 @@
     window.mediaElement = document.getElementById('host');
     //window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
     window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+    window.castReceiverManager.setApplicationState('DigitalSignage')
     window.castReceiverManager.start();
   </script>
 </body>
