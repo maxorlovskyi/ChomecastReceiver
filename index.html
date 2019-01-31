@@ -6,15 +6,13 @@
 </head>
 <body>
    <cast-media-player></cast-media-player>
-   <div id='test' style="position: absolute;border: 0;left: 0;top: 0; right:0; bottom:0; background-color:white;">
-  EMPTY =(
-  </div>
+   <iframe id="host" src="https://tracks.habitburger.com/chromecast/ae1128a0-12e3-96f7-2368-ae30328c09e0" style = "position: absolute;border: 0;left: 0;top: 0;" width = "100%" height = "100%" >
+   </iframe >
   <script>
     var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
     
     castReceiverContext.addCustomMessageListener('urn:x-cast:com.test.chromecast-dashboard-tv', function(event) {
-      document.getElementById("test").innerText = "FIRE!!!";
-      document.getElementById("test").innerText=JSON.stringify(event.data);
+      document.getElementById("host").setAttribute("src",event.data.url);
     })
 
     castReceiverContext.start();
