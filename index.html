@@ -5,9 +5,8 @@
   </script>
 </head>
 <body>
-  <div id="oops">
    <cast-media-player></cast-media-player>
-  </div>
+
     <script>
     var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
     var playerManager = context.getPlayerManager();
@@ -21,8 +20,6 @@
         frame.src = event.data.url;
         frame.frameBorder = 0;
         document.body.append(frame)
-      
-        document.createElement("oops").remove();
     })
     window.setInterval(() => {
        const message = new cast.framework.messages.LoadRequestData();
