@@ -9,7 +9,7 @@
 
     <script>
     var castReceiverContext = cast.framework.CastReceiverContext.getInstance();
-    var playerManager = context.getPlayerManager();
+    var playerManager = castReceiverContext.getPlayerManager();
       
     castReceiverContext.addCustomMessageListener('urn:x-cast:com.test.chromecast-dashboard-tv', function(event) {
         var frame = document.createElement("iframe");
